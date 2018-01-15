@@ -177,6 +177,14 @@ Page({
   onNavbarTap: function (e) {
     this.setData({ currentTab: e.currentTarget.dataset.index });
   },
+  onShow:function(){
+    this.setData({
+      currentTab:0,
+      searchHotShow: true,
+      searchHistoryShow: false,
+      searchResultShow: false,
+    });
+  },
   onReady: function (e) {  
     //启动动画
     var animation = wx.createAnimation({
