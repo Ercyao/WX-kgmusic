@@ -64,5 +64,5 @@
   text-overflow: ellipsis;
 }
 .playlist-box .song{
-  width: 88%;
+  width: 90%;
 }
