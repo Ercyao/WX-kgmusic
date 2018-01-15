@@ -1,0 +1,23 @@
+<!--pages/Ranklist/Ranklist.wxml-->
+<!-- 背景图片 start-->
+<block>
+  <view class='bg_shade'></view>
+  <image src="../../img/bg_img.jpg" class="bg_img"></image>
+</block>
+<!-- 背景图片 end-->
+<view class="ranklist-wrapper">
+  <view class="ranklist-header">
+    <view class="header-bg"></view>
+    <text class='header-txt'>{{rankInfo.rankname}}</text>
+    <image src='../../img/cd.png' class='header-icon'></image>
+  </view>
+  <!-- 歌曲列表 -->
+   <view class="ranklist-box">
+    <view class="item" wx:for="{{ranklist}}" wx:for-item="rank" wx:key="{{index}}" data-hash="{{rank.hash}}" bindtap='onPlayTap'>
+      <text class='index'> {{index+1}}</text>
+      <text class='song name'>{{rank.filename}}</text>
+      <text> {{rank.duration}}</text>
+   </view>
+  </view> 
+</view> 
+

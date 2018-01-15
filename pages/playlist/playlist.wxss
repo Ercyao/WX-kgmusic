@@ -1,0 +1,68 @@
+/* pages/playlist/playlist.wxss */
+.ranklist-wrapper .ranklist-header{
+  position: relative;
+  z-index: 2;
+  font-weight:bold;
+  width:100%;
+  height:200rpx;
+  line-height:200rpx;
+  text-align:center;
+  font-size:50rpx;
+  box-shadow:0 10rpx 15rpx rgba(90, 150, 160, 0.6);
+  color:#fb483a;
+}
+.header-bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:#fff;
+  opacity: 0.6;
+}
+.header-txt{
+  position: relative;
+  z-index: 2;
+}
+.header-icon{
+  position: absolute;
+  bottom: -45rpx;
+  right: 10rpx;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background:#fff;
+  box-shadow:0 10rpx 6rpx rgba(90, 150, 160, 0.9);
+  animation: headicon 1s linear;
+  -webkit-animation: headicon 1s linear;
+}
+@keyframes headicon{0%{bottom:-45rpx;}25%{bottom:70rpx;}50%{bottom:-70rpx;} 75%{bottom:0rpx;} 100%{bottom:-45rpx;}}
+@-webkit-keyframes headicon{0%{bottom:-45rpx;}25%{bottom:70rpx;}50%{bottom:-70rpx;} 75%{bottom:0rpx;} 100%{bottom:-45rpx;}}
+
+
+.playlist-box{
+  margin: 3%;
+}
+.playlist-box .item{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #678e95;
+  display: flex;
+  justify-content: space-between;
+}
+.index{
+  width:50rpx;
+  height:50rpx;
+  line-height:50rpx;
+  border-radius:50%;
+  background:#678e95;
+  box-shadow:2rpx 6rpx 12rpx rgba(0, 0, 0, 0.5);
+  text-align:center;
+  margin: 15rpx 0;
+}
+.name{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.playlist-wrapper .song{
+  width: 88%;
+}

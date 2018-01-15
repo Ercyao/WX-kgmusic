@@ -1,0 +1,20 @@
+<!--pages/playlist/playlist.wxml-->
+<block>
+  <view class='bg_shade'></view>
+  <image src="../../img/bg_img.jpg" class="bg_img"></image>
+</block>
+<!--导航栏-->
+<view class="ranklist-wrapper">
+  <view class="ranklist-header">
+    <view class="header-bg"></view>
+    <text class='header-txt'>听喜欢的歌</text>
+    <image src='../../img/cd.png' class='header-icon'></image>
+  </view>
+  <!-- 歌曲列表 -->
+  <view class="playlist-box">
+    <view class="item" wx:for="{{playlist}}" wx:key="{{index}}" data-hash="{{item.hash}}" bindtap='onPlayTap'>
+      <text class='index'> {{index+1}}</text>
+      <text class='song name'>{{item.audio_name}}</text>
+   </view>
+  </view> 
+</view> 

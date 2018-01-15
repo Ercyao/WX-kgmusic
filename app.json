@@ -1,0 +1,47 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/songmenu/songmenu",
+    "pages/play/play",
+    "pages/profile/profile",
+    "pages/playlist/playlist",
+    "pages/songlist/songlist",
+    "pages/ranklist/ranklist",
+    "pages/singerlist/singerlist",    
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#5F9EA0",
+    "navigationBarTitleText": "聆听耳边的声音",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar":{
+    "color": "white",
+    "selectedColor": "#ed3410",
+    "borderStyle": "white",
+    "backgroundColor": "#5F9EA0",
+    "list":[{
+      "pagePath":"pages/index/index",
+      "iconPath":"img/bar_1.png",
+      "selectedIconPath":"img/bar_act.png",
+      "text":"乐库"
+    },{
+      "pagePath": "pages/songmenu/songmenu",
+      "iconPath": "img/bar_2.png",
+      "selectedIconPath": "img/bar_act.png",
+      "text": "歌单"
+    },{
+      "pagePath": "pages/play/play",
+      "iconPath": "img/bar_3.png",
+      "selectedIconPath": "img/bar_act.png",
+      "text": "正在播放"
+    },
+    {
+      "pagePath": "pages/profile/profile",
+      "iconPath": "img/bar_4.png",
+      "selectedIconPath": "img/bar_act.png",
+      "text": "我的"
+    }]
+  }
+}

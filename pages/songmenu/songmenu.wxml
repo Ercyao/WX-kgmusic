@@ -1,0 +1,20 @@
+<!--pages/songmenu/songmenu.wxml-->
+<view class="container">
+<block>
+  <view class='bg_shade'></view>
+  <image src="../../img/bg_img.jpg" class="bg_img"></image>
+</block>
+<view class='songmenu-wrapper'>
+  <block wx:for="{{songmenu}}" wx:key="{{item.specialid}}">
+  <view class='songmenu-item' data-id='{{item.specialid}}' bindtap='onSonglistTap'>
+    <image src='{{item.user_avatar}}' class="songmenu-img"></image>
+    <view class="songmenu-bg"></view>
+    <view class="songmenu-con">
+      <view style='background:url(../../img/music_icon.png) no-repeat scroll 0 -214px;' class="songmenu-icon"></view>
+      <text>{{item.specialname}}</text>
+    </view> 
+  </view>
+  </block>
+</view>
+</view>
+

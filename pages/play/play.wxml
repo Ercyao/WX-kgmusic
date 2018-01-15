@@ -1,0 +1,66 @@
+<!--pages/play/play.wxml-->
+<view class="container">
+<!-- 背景图片 start-->
+<block>
+  <view class='bg_shade'></view>
+  <image src="../../img/bg_img.jpg" class="bg_img"></image>
+  <!-- <image src="{{song.img}}" class="bg_img"></image> -->
+</block>
+<!-- 背景图片 end-->
+  <view class='audio-box'>
+  <!-- 头部  歌名和歌手 -->
+    <view class='audio-header'>
+       <view style='background:url(../../img/music_icon.png) no-repeat scroll -21px -33px;' class='list-icon' bindtap='songlistTap' ></view> 
+      <view class='love-icon' bindtap='collectTap'>
+         <view style='background:url(../../img/music_icon.png) no-repeat scroll -20px -60px;' wx:if="{{collectShow}}"></view>
+         <view style='background:url(../../img/music_icon.png) no-repeat scroll -50px -60px;'wx:else="{{!collectShow}}"></view>
+      </view>
+      <view class='songname'> {{song.song_name}}</view> 
+      <view class='singername'>—— {{song.author_name}} ——</view>
+    </view>
+    <!-- 歌词面板 -->
+    <view class='lyrics-box'>
+      <scroll-view scroll-y bindscroll="lyrScroll" scroll-into-view="lyr-{{toView}}" class='lyrics-panels'>
+        <block wx:for="{{lyrics}}" wx:key="{{index}}">
+        <view id="lyr-{{index}}" class="{{currentId==index?'act':''}}">{{item}}</view>
+        </block>
+      </scroll-view>
+    </view>
+    <!-- 进度条 -->
+    <view class='progress-bar'>
+      <slider bindchange="sliderChange" value='{{sliderVal}}' step="0.1" activeColor="#fa705b"/>
+    </view>
+    <!-- 播放按钮 -->
+    <view class='player-btn'>
+      <view id="upcut" bindtap='beforeSong' class='player-item'>
+       <view style='background:url(../../img/music_icon.png) no-repeat scroll -8px -110px;'></view>
+      </view>
+      <view id="control"  bindtap="playToggle" class='player-item'>
+        <view style='background:url(../../img/music_icon.png) no-repeat scroll -45px -145px;' wx:if="{{isPlaying}}" class='control-icon'></view> 
+        <view style='background:url(../../img/music_icon.png) no-repeat scroll 0 -145px;' wx:else="{{!isPlaying}}" class='control-icon'></view>
+      </view>
+      <view  id="downcut" bindtap='afterSong' class='player-item'>
+       <view style='background:url(../../img/music_icon.png) no-repeat scroll -42px -110px;'></view>
+      </view>
+    </view>
+
+    <!-- 播放列表 -->
+    <view class='player-list' wx:if="{{listShow}}">
+      <view class='list-bg' bindtap='listHideTap'></view>
+      <scroll-view scroll-y bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" class='list-con'>
+        <view class="list-title">等待播放列表</view >
+        <block wx:for="{{SongList}}" wx:key="{{index}}"> 
+        <view id="list-item" data-id="{{index}}" bindtap='changeSongTap' class="{{colorShow==item.hash?'red':''}}">
+          <text class='list-num'>{{index+1}}</text> 
+          <text class='list-name'>{{item.filename}}</text>
+        </view>
+        </block> 
+      </scroll-view >
+    </view>
+
+
+<!-- 音频 -->
+ <audio src="{{song.play_url}}" id="musicAudio" bindtimeupdate="timeUpdate" bindchange='playSong' action="{{action}}" bindended="EndChangeSong" ></audio>  
+  </view>
+</view>
+

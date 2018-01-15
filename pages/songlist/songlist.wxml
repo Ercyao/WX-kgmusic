@@ -1,0 +1,34 @@
+<!--pages/songlist/songlist.wxml-->
+<!--pages/Ranklist/Ranklist.wxml-->
+<!-- 背景图片 start-->
+<block>
+  <view class='bg_shade'></view>
+  <image src="../../img/bg_img.jpg" class="bg_img"></image>
+</block>
+<!-- 背景图片 end-->
+<view class="songlist-wrapper">
+  <view class="songlist-header">
+    <view class="header-bg"></view>
+    <view  class='header-txt'>
+      <view class='title'>{{songInfo.specialname}}</view>
+      <view class='time'>
+        <text>创建人：{{songInfo.nickname}}</text>
+        <text class='last'>更新时间：{{songInfo.publishtime}}</text>
+      </view>
+      <view class='intro'>
+        <view>{{songInfo.intro}}</view>
+      </view>
+      <image src='../../img/cd.png' class='header-icon'></image>
+    </view>
+  </view>
+  <!-- 歌曲列表 -->
+   <view class="songlist-box">
+    <view class="item" wx:for="{{songlist}}" wx:for-item="song" wx:key="{{index}}"  data-hash="{{song.hash}}" bindtap='onPlayTap'>
+      <text class='index'> {{index+1}}</text>
+      <text class='song name'>{{song.filename}}</text>
+      <text> {{song.duration}}</text>
+   </view>
+  </view> 
+</view> 
+
+

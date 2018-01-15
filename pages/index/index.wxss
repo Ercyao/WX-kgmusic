@@ -1,0 +1,302 @@
+/**index.wxss**/
+/* 启动动画 start*/
+.start{
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 999;
+  width:100%;
+  height:100%;
+  background:#5F9EA0; 
+  padding: 200rpx 0;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #333;
+}
+.usermotto {
+  margin-top: 100px;
+  text-align: center;
+  line-height: 60rpx;
+}
+/* 启动动画 end*/
+
+.music_box{
+  width:100%;
+  height:100%;
+}
+/* 菜单栏 start*/
+.music_menu{
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #f1f1f1;
+  display: flex;
+  justify-content: space-around;
+}
+ .music_menu text{
+  height: 75rpx;
+  line-height: 75rpx;
+  cursor: pointer;
+} 
+.music_menu .mact{
+  border-bottom: 6rpx solid #5F9EA0;
+}
+/* 菜单栏 end*/
+
+ .music_list{
+  height: 92%;
+  margin-top: 80rpx;
+  overflow: hidden;
+} 
+
+
+/* 推荐频道   start*/
+.recommend_list{
+  height: 100%;
+}
+/* 轮播图 */
+.swiper_box{
+  width: 100%;
+  height: 300rpx;
+  margin-bottom: 80rpx;
+}
+.swiper_box image{
+  width: 100%;
+  height: 350rpx; 
+}
+/* 新歌首发 */
+.song_box .item{
+  width: 94%;
+  margin:3%;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 2%;
+  box-shadow: 0 0 4rpx 4rpx rgba(90, 150, 160, 0.6);
+}
+.tag_title{
+  color: #08bbc1;
+  font-size: 40rpx;
+  height:90rpx;
+  line-height: 90rpx;
+  border-bottom:1rpx solid #678e95;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+/* 新歌首发 */
+.newsong_name{
+  height:300rpx;
+  overflow: hidden;
+}
+.newsong_row{
+  padding-left: 3%;
+  height:60rpx;
+  line-height: 60rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.newsong_name .song{
+  width: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.pagination{
+  height:80rpx;
+  line-height: 80rpx;
+  color: #eee;
+  text-align: center;
+}
+.previous,.next{
+  display: inline-block;
+  width: 24rpx;
+  height: 24rpx;
+  border-top: 4rpx solid #333;
+  border-right: 4rpx solid #333;
+  vertical-align: middle;
+}
+.previous,.next{
+  transform: rotate(-135deg);
+}
+.next{
+  transform: rotate(45deg);
+}
+/* 推荐频道   end*/
+
+
+/* 分类频道   start*/
+.class_list{
+  height: 100%;
+  padding:0 3%;
+  box-sizing: border-box;
+}
+.class_list .item{
+  margin-bottom: 100rpx;
+}
+/* 歌手分类 */
+.rank_box{
+  position:relative;
+  color:#eee;
+  display:inline-block;
+  width:46%;
+  height:100rpx;
+  line-height:100rpx;
+  margin:2%;
+  text-align:center;
+}
+.class-tag{
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.class-bg{
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  height: 100rpx;
+  background: #000;
+  opacity: 0.4;
+}
+/* 分类频道   end*/
+
+/* 搜索频道   start*/
+.search{
+  margin: 3%;
+}
+.search-bar{
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.search-box{
+  position: relative;
+  width: 84%; 
+}
+.search-bar .icon-search{
+  position: absolute;
+  top:15rpx;
+  left:20rpx;
+  z-index: 2;
+}
+.search-bar .icon-clear{
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  z-index: 2;
+}
+.search-bar .search-input{
+  font-size: 30rpx;
+  width: 100%;
+  height: 70rpx;
+  padding:0 10% 0 12%;
+  border: 1rpx solid #eee;
+  box-sizing: border-box;
+}
+.search-bar .search-input:hover,
+.search-bar .search-input:focus{
+  box-shadow: 4rpx 10rpx 12rpx rgba(90, 140, 150, 0.4);
+}
+
+.cancel-btn{
+  color: #eee;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.search-hot{
+ margin:5% 0;
+}
+.hot-title{
+  font-weight: bold;
+  color: #e45267;
+  padding:5rpx 20rpx;
+  text-shadow: 10rpx 8rpx 2rpx #678e95;
+}
+.hot_icon{
+  width: 40rpx;
+  height: 40rpx;
+  animation: hot 1.5s ease infinite;
+}
+@keyframes hot{
+  0%{opacity: 1;transform: scale(1)}
+  50%{opacity: 0.8;transform: scale(0.8)}
+  100%{opacity:1;transform: scale(1)}
+}
+.hot-wrap{
+  margin: 20rpx 0;
+  
+}
+.hot-item{
+  font-size: 26rpx;
+  display: inline-block;
+  padding: 10rpx 25rpx;
+  margin: 10rpx;
+  border-radius:30rpx;
+  color: #eee;
+  border: 1rpx solid #79b3bd;
+}
+.hot{
+  color: #e45267;
+  border: 0;
+  box-shadow: 0  2rpx 8rpx rgba(228, 40, 70, 0.6);
+}
+.search-record{
+  height: 100%;
+  overflow: hidden;
+}
+.record-item{
+  width: 100%;
+  height: 50rpx;
+  padding: 20rpx 0 10rpx;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ccc;
+}
+.record_con{
+  width: 90%;
+  height: 40rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  color: #f1f1f1;
+  overflow: hidden;
+}
+.record_con:hover,
+.record_con:focus{
+  color: #fff;
+}
+.record_allDel{
+  font-size: 30rpx;
+  width: 100%;
+  padding: 25rpx 10rpx 5rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f1f1;
+  box-sizing: border-box;
+}
+.record_allDel .del-icon{
+  width: 50rpx;
+  height: 50rpx;
+}
+/* 搜索频道   end*/

@@ -1,0 +1,48 @@
+/* pages/songmenu/songmenu.wxss */
+.songmenu-wrapper{
+  width: 100%;
+  margin: 3%;
+}
+.songmenu-item{
+  display: inline-block;
+  position: relative;
+  width: 40%;
+  height: 200rpx;
+  margin: 5%;
+  box-shadow:2rpx 6rpx 10rpx rgba(0, 0, 0, 0.6);
+}
+.songmenu-img{
+  width: 100%;
+  height: 100%;
+}
+.songmenu-bg{
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+}
+.songmenu-con{
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  padding: 0 5%;
+  width: 90%;
+  font-size: 26rpx;
+  text-align:center;
+}
+.songmenu-icon{
+  width: 110rpx;
+  height: 110rpx;
+  margin: 25rpx auto;
+}
+.songmenu-con text{
+  display: inline-block;
+  width: 100%;
+  height: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

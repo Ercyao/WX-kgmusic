@@ -1,0 +1,30 @@
+<!--pages/profile/profile.wxml-->
+<!-- 背景图片 start-->
+<block>
+  <view class='bg_shade'></view>
+  <image src="../../img/bg_img.jpg" class="bg_img"></image>
+</block>
+<!-- 背景图片 end-->
+<view class='pro_box'>
+  <view class='pro_title'>面朝大海，春暖花开。</view>
+  <view class='pro_row' bindtap='playlistTap'>
+    <text>收藏的歌曲</text>
+    <text class='num'>({{collectlen}})</text>
+  </view>
+  <view class='pro_row' bindtap='latelySongTap'>
+    <text>最近听的歌</text>
+    <text  class='num'>({{latelylen}})</text>
+    <text class="{{latelySongShow?'bottom':'top'}}" id='arrows'></text>
+  </view>
+  <!-- 歌曲列表 -->
+  <scroll-view class="latelySong-wrapper" wx:if="{{latelySongShow}}">
+    <view class="latelySong-box" wx:if="{{isShow}}">
+      <view class="item" wx:for="{{latelySong}}" wx:key="{{index}}" data-hash="{{item.hash}}" bindtap='onPlayTap'>
+        <text class='index'> {{index+1}}</text>
+        <text class='song name'>{{item.audio_name}}</text>
+      </view>
+    </view> 
+    <view class='hint' wx:else="{{!isShow}}">最近未听歌...</view>
+  </scroll-view>
+</view>
+

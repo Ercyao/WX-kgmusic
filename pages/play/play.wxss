@@ -1,0 +1,165 @@
+/* pages/play/play.wxss */
+/* 全部*/
+.audio-box{
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+} 
+/* 歌名和歌手  头部 */
+.audio-header{
+  position: relative;
+  width: 100%;
+  height: 130rpx;
+  text-align: center;
+  color: white;
+}
+.list-icon{
+  position: absolute;
+  left: 20rpx;
+  top: 35rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.love-icon view{
+  position: absolute;
+  right: 20rpx;
+  top: 35rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.audio-header .songname{
+  font-size: 38rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-weight: bold;
+  overflow: hidden;
+}
+.audio-header .singername{
+  font-size:26rpx;
+  opacity: 0.5;
+}
+/* 歌词面板 */
+.lyrics-box{
+  width: 90%;
+  height: 55%;
+  margin: 5%;
+  text-align: center;
+  overflow-y: hidden;
+}
+.lyrics-panels{
+  position: relative;
+  top:0;
+  overflow-y: auto;
+  color: #678e95;
+  height:100%;
+  line-height: 60rpx;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.lyrics-panels .act{
+  color: #fff;
+}
+/* 进度条 */
+.progress-bar{
+  position: relative;
+  width: 100%;
+  height: 60rpx;
+}
+/* 按钮 */
+.player-btn{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+}
+.player-btn .player-item{
+  color: #aaa;
+  padding: 10rpx;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 5rpx 25rpx rgba(0, 0, 0,0.8); 
+}
+#upcut,#downcut{
+  width: 80rpx;
+  height: 80rpx; 
+  margin: 30rpx 40rpx;
+}
+#upcut view,#downcut view{
+  width: 80rpx;
+  height: 70rpx; 
+}
+#control{
+  width: 130rpx;
+  height: 130rpx;
+}
+#control .control-icon{
+  width: 100rpx;
+  height: 130rpx;
+  margin-left: 24rpx;
+}
+
+/* 播放列表 */
+.player-list{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+}
+.list-bg{
+ position: relative;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+}
+.list-con{
+  position: absolute;
+  bottom: 0;
+  z-index: 99;
+  width: 100%;
+  height: 50%;
+  background: #678e95;
+}
+.list-title{
+  position: fixed;
+  top: 42%;
+  left: 0;
+  width: 90%;
+  padding:0 5%;
+  font-weight: bold;
+  font-size: 38rpx;
+  color: #333;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #ccc;
+  background: #678e95;
+}
+#list-item{
+  height: 100rpx;
+  line-height: 99rpx;
+}
+.list-num{
+  width: 8%;
+  text-align: center;
+  margin: 0 1%;
+  overflow: hidden;
+}
+.list-name{
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #ccc;
+}
+.red{
+  color: #f25460;
+}

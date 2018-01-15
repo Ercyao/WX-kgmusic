@@ -1,0 +1,22 @@
+<!--pages/Singerlist/Singerlist.wxml-->
+<!-- 背景图片 start-->
+<block>
+  <view class='bg_shade'></view>
+  <image src="../../img/bg_img.jpg" class="bg_img"></image>
+</block>
+<!-- 背景图片 end-->
+<view class="singerlist-wrapper">
+  <view class="singerlist-header">
+    <view class="header-bg"></view>
+    <text class='header-txt'>{{classname}}</text>
+    <image src='../../img/cd.png' class='header-icon'></image>
+  </view>
+  <!-- 歌曲列表 -->
+   <view class="singerlist-box">
+    <block  wx:for="{{singerlist}}"  wx:key="{{item.singerid}}">
+    <view class="item" data-id='{{item.singerid}}'>
+       <text class='index'> {{index+1}}</text><text class='singer name'>{{item.singername}}</text>
+    </view>
+    </block>
+  </view> 
+</view> 

@@ -1,0 +1,68 @@
+/**app.wxss**/
+page{
+  font-size: 30rpx;
+  color: #fff;
+  height: 100%;
+}
+text{
+  display: inline-block;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+/* 背景图片 */
+.bg_shade{
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: #1f3334;
+  opacity: 0.2;
+}
+.bg_img{
+  position: fixed;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+}
+/* 头部导航 */
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:99;
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  color: white;
+  box-shadow: 4rpx 10rpx 12rpx rgba(90, 140, 150, 0.4);
+}
+.header .tag{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-weight: bold;
+  overflow: hidden;
+}
+.backbtn{
+  position: absolute;
+  top: 15rpx;
+  left: 3%;
+  width: 50rpx;
+  height: 55rpx; 
+  transform: rotateY(45deg);
+}
+.backbtn image{
+  width: 100%;
+  height: 100%;
+}
+
+.box{
+  height:92%;
+  margin-top:80rpx;
+  overflow:hidden;
+}

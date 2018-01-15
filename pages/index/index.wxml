@@ -1,0 +1,136 @@
+<!--index.wxml-->
+<view class="container">
+<!-- 背景图片 start-->
+<block>
+  <view class='bg_shade'></view>
+  <image src="../../img/bg_img.jpg" class="bg_img"></image>
+</block>
+<!-- 背景图片 end -->
+
+  <!-- 启动画面 start -->
+   <view class="start" animation="{{animationData}}">
+    <view class="userinfo">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
+    <view class="usermotto">
+      <text>{{motto}}</text>
+    </view> 
+  </view> 
+  <!-- 启动画面 end -->
+
+  <view class="music_box">
+     <!--导航栏-->
+    <view class='music_menu'>
+    <text class="item {{currentTab==index ? 'mact' : ''}}" wx:for="{{navbar}}" wx:key="{{index}}" data-index="{{index}}" bindtap="onNavbarTap">{{item}}</text>
+    </view>
+
+    <view class='music_list'>
+      <!-- 推荐 start-->
+      <scroll-view scroll-y class='recommend_list' hidden="{{currentTab!==0}}">
+       <!-- 轮播图 start-->
+        <swiper indicator-dots="true" indicator-active-color="white" autoplay="true" interval="5000" duration="1000" class='swiper_box'>
+          <block wx:for="{{banner}}" wx:key="{{index}}">
+            <swiper-item data-id="{{item.id}}">
+              <image src="{{item.imgurl}}" class="slide-image"/>
+            </swiper-item>
+          </block>
+        </swiper>
+         <!-- 轮播图 end-->
+      <!-- 新歌首发 start-->
+      <view  class='song_box' >
+        <view class='item' >
+          <view class='tag_title'>新歌首发</view>
+          <scroll-view scroll-y scroll-into-view="ns-{{toView}}" class='newsong_name'>
+            <view class='newsong_row' wx:for="{{Newsong}}" wx:key="{{index}}" id="ns-{{index}}" data-hash="{{item.hash}}" bindtap='onPlayTap'>
+              <text class='song'>{{item.filename}}</text><text>{{item.duration}}</text>
+            </view>
+          </scroll-view>
+          <view class='pagination'>
+            <view class='previous' bindtap="previousMove"></view> {{currentPage}}/{{totalPages}}<view class='next' bindtap="nextMove"></view>
+          </view>
+        </view>
+        <!-- 新歌首发 end-->
+      </view>
+    </scroll-view>
+    <!-- 推荐 end-->
+    <!-- 分类 start-->
+      <scroll-view scroll-y hidden="{{currentTab!==1}}" class='class_list'>
+      <!-- 排行榜 start-->
+        <view class='item' >
+          <view class='tag_title'>排行榜分类</view>
+          <view class='class_box'>
+              <view wx:for="{{Rankclass}}" wx:key="{{item.classid}}" data-id='{{item.rankid}}' bindtap='onRanklistTap'   class='rank_box'>
+                <view class='class-tag'>{{item.rankname}}</view>
+                <view class='class-bg'><image src='{{item.imgUrl}}'></image></view> 
+              </view>
+          </view>
+      </view>
+      <!-- 排行榜 end-->
+        <!-- 歌手分类 start-->
+        <view class='item' >
+          <view class='tag_title'>歌手分类</view>
+          <view class='class_box'>
+              <view wx:for="{{Singerclass}}" wx:key="{{item.classid}}" data-id='{{item.classid}}' bindtap='onSingerlistTap'   class='rank_box'>
+                <view class='class-tag'>{{item.classname}}</view>
+                <view class='class-bg'><image src='{{item.imgUrl}}'></image></view> 
+              </view>
+          </view>
+      </view>
+      <!-- 歌手分类 end-->
+    </scroll-view>
+    <!-- 分类 end-->
+
+    <!-- 搜索 -->
+      <view class="search" hidden="{{currentTab!==2}}">
+        <!-- 搜索框-->
+        <view class="search-bar">
+          <view class="search-box">
+            <icon class="icon-search" color="white" type="search" size="18"></icon>
+            <icon class="icon-clear" type="clear" size="14" wx:if="{{searchBtnShow}}" bindtap='cancelBtnTap'></icon>
+            <input type="text" class="search-input" type='text' confirm-type='search' placeholder="搜索歌曲、歌单、专辑" value='{{searchInput}}' focus="{{inputFocus}}" bindinput="inputChangeTap" bindfocus="FocusTap"  bindconfirm="inputConfirmTap"/>
+          </view>
+          <view class="cancel-btn" bindtap='SearchCancel'>取消</view>
+        </view>
+        <!-- 热门搜索 -->
+         <view class="search-hot" wx:if="{{searchHotShow&&!searchHistoryShow&&!searchResultShow}}">
+          <image src='../../img/hot.png' class='hot_icon'></image>
+          <text class="hot-title">热门搜索</text>
+          <view class="hot-wrap">
+            <navigator url="{{item.jumpurl}}" class="hot-item" wx:for="{{Hotsearch}}" wx:key="{{index}}">{{item.keyword}}</navigator>
+          </view>
+        </view> 
+        <!-- 搜索历史 -->
+        <view class='search-history' wx:if="{{searchHistoryShow&&!searchHotShow&&!searchResultShow}}">
+            <view class="record_allDel"  wx:if="{{searchHistorys.length>0}}">
+              <view>搜索历史</view>
+              <view catchtap="onSearchHistoryDeleteAll">
+              <view style='background:url(../../img/music_icon.png) no-repeat scroll -48px 0;' class="del-icon"></view>
+              </view>
+            </view>
+            <scroll-view scroll-y class="search-record" >
+            <block wx:for="{{searchHistorys}}" wx:key="{{index}}">
+              <view class="record-item">
+                <icon color="#eee" type="waiting_circle" size="20"></icon>
+                <view class="record_con">{{item}}</view>
+              </view>
+            </block>
+          </scroll-view>
+        </view> 
+        <!-- 搜索结果 -->
+        <view class="search-result" wx:if="{{searchResultShow&&!searchHotShow&&!searchHistoryShow}}">
+            <scroll-view scroll-y scroll-into-view="{{scrollToView}}" style="height:{{scrollviewH}}px;"  bindscrolltolower="onScrollLower" >
+              <view class="record-item"  wx:for="{{Searchlist}}" wx:key="{{index}}"  data-hash="{{item.hash}}" bindtap='onPlayTap'>
+                <icon color="#eee" type="search" size="12"></icon>
+                <view class="record_con">{{item.filename}}</view>
+              </view>
+          </scroll-view>
+       </view>  
+
+      </view> 
+    </view>
+  </view>
+</view>

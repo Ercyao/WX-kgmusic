@@ -1,0 +1,77 @@
+/* pages/profile/profile.wxss */
+.pro_box{
+  width: 100%;
+  height: 100%;
+}
+.pro_title{
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.pro_row{
+  width: 90%;
+  padding:0 5%;
+  height: 100rpx;
+  line-height: 120rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.pro_row .num{
+  color: #ccc;
+  width: 10%;
+  text-align: center;
+}
+#arrows{
+  float: right;
+  width: 25rpx;
+  height: 25rpx;
+  border-top: 4rpx solid #eee;
+  border-left: 4rpx solid #eee;
+  /* transform: rotate(45deg); */
+  /* transform: rotate(-135deg); */
+  
+}
+.top{
+  margin:28px 0;
+  transform: rotate(45deg);
+
+}
+.bottom{
+  margin:20px 0;
+  transform: rotate(-135deg);
+}
+
+/* latelysong */
+.latelySong-wrapper{
+  background: #000;
+  opacity: 0.4;
+}
+.latelySong-box{
+  margin: 3%;
+}
+.latelySong-box .item{
+  height: 70rpx;
+  line-height: 70rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.index{
+  color:#888;
+  width:50rpx;
+  text-align:center;
+}
+.name{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.latelySong-box .song{
+  width: 90%;
+}
+.hint{
+  text-align: center;
+  height: 90rpx;
+  line-height: 100rpx;
+}
