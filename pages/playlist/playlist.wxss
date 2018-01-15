@@ -63,6 +63,6 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.playlist-wrapper .song{
+.playlist-box .song{
   width: 88%;
 }
